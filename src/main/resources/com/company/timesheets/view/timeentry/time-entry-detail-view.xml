@@ -39,7 +39,7 @@
                     <icon icon="CALENDAR"/>
                 </prefix>
             </datePicker>
-            <entityPicker id="userField" property="user">
+            <entityPicker id="userField" property="user" readOnly="true">
                 <actions>
                     <action id="assignSelf" text="msg://assignSelf.text" icon="USER_CHECK"/>
                     <action id="entityLookup" type="entity_lookup"/>
