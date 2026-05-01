@@ -14,9 +14,17 @@
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+        <timer id="timer1" delay="1000" autostart="true" repeating="true"/>
+        <timer id="timer2" delay="5000" autostart="true"/>
+        <settings auto="true"/>
     </facets>
     <layout>
-        <genericFilter dataLoader="timeEntriesDl">
+<!--        <button id="stopSecondTimerBtn" text="msg://stopSecondTimerBtn"/>-->
+        <genericFilter id="genericFilter" dataLoader="timeEntriesDl">
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">

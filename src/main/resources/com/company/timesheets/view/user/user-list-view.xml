@@ -25,6 +25,12 @@
         </urlQueryParameters>
     </facets>
     <layout>
+        <vbox>
+            <button id="performWithoutResultBtn" text="Perform without result"/>
+
+            <textField id="inputField" clearButtonVisible="true"/>
+            <button id="performChangesBtn" text="Perform with result"/>
+        </vbox>
         <genericFilter id="genericFilter"
                        dataLoader="usersDl">
             <properties include=".*"/>

@@ -6,6 +6,7 @@ import com.company.timesheets.entity.TimeEntryStatus;
 import com.company.timesheets.entity.User;
 import com.company.timesheets.view.main.MainView;
 import com.company.timesheets.view.task.TaskLookupView;
+import com.vaadin.flow.data.provider.Query;
 import com.vaadin.flow.router.Route;
 import io.jmix.core.usersubstitution.CurrentUserSubstitution;
 import io.jmix.flowui.DialogWindows;
@@ -19,6 +20,7 @@ import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
+import java.util.stream.Stream;
 
 @Route(value = "time-entries/:id", layout = MainView.class)
 @ViewController("ts_TimeEntry.detail")
@@ -37,7 +39,7 @@ public class TimeEntryDetailView extends StandardDetailView<TimeEntry> {
     @Autowired
     private DialogWindows dialogWindows;
     @ViewComponent
-    private EntityPicker<User> userField;
+    private EntityComboBox<User> userField;
 
     public static final String PARAMETER_OWN_TIME_ENTRY = "ownTimeEntry";
 
@@ -121,4 +123,9 @@ public class TimeEntryDetailView extends StandardDetailView<TimeEntry> {
         dialogWindow.getView().setUser(getEditedEntity().getUser());
         dialogWindow.open();
     }
+
+//    @Install(to = "taskField", subject = "itemsFetchCallback")
+//    private Stream<Task> taskFieldItemsFetchCallback(final Query<Task, String> query) {
+//        return null;
+//    }
 }
