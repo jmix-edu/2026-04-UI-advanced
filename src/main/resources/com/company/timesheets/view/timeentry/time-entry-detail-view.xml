@@ -31,69 +31,71 @@
         <action id="saveAction" type="detail_saveClose"/>
         <action id="closeAction" type="detail_close"/>
     </actions>
-    <layout>
-        <formLayout id="form"
-                    dataContainer="timeEntryDc">
-            <datePicker id="dateField" property="date">
-                <prefix>
-                    <icon icon="CALENDAR"/>
-                </prefix>
-            </datePicker>
-            <entityComboBox id="userField" property="user" readOnly="true">
-                <prefix>
-                    <icon icon="USER"/>
-                </prefix>
-                <itemsQuery class="com.company.timesheets.entity.User"
-                            escapeValueForLike="true"
-                            searchStringFormat="(?i)%${inputString}%">
-                    <fetchPlan extends="_base"/>
-                    <query>
-                        <![CDATA[select e from ts_User e where e.firstName like :searchString
-                         or e.username like :searchString
-                         or e.lastName like :searchString
-                         escape '\' order by e.firstName]]>
-                    </query>
-                </itemsQuery>
-                <actions>
-                    <action id="assignSelf" text="msg://assignSelf.text" icon="USER_CHECK"/>
-                    <action id="entityLookup" type="entity_lookup"/>
-                    <action id="entityClear" type="entity_clear"/>
-                </actions>
-            </entityComboBox>
-            <entityComboBox id="taskField"
-                            itemsContainer="tasksDc"
-                            property="task"
+    <layout expand="contentBox" alignItems="STRETCH" padding="false">
+        <vbox id="contentBox">
+            <formLayout id="form"
                             dataContainer="timeEntryDc">
-                <actions>
-                    <action id="entityLookup" type="entity_lookup"/>
-                    <action id="entityClear" type="entity_clear"/>
-                </actions>
-                <prefix>
-                    <icon icon="FILE_TEXT_O"/>
-                </prefix>
-            </entityComboBox>
-            <textField id="spentTimeField"
-                       property="spentTime"
-                       placeholder="msg://spentTimeField.placeholder">
-                <prefix>
-                    <icon icon="CLOCK"/>
-                </prefix>
-            </textField>
-            <select id="statusField" property="status"/>
-            <textArea id="descriptionField" property="description"
-                      height="9.5em" colspan="2">
-                <prefix>
-                    <icon icon="COMMENT_O"/>
-                </prefix>
-            </textArea>
-            <textArea id="rejectionReasonField" property="rejectionReason"
-                      height="9.5em" colspan="2" required="true">
-                <prefix>
-                    <icon icon="EXCLAMATION_CIRCLE_O"/>
-                </prefix>
-            </textArea>
-        </formLayout>
-        <hbox id="detailActions">
+                <datePicker id="dateField" property="date">
+                    <prefix>
+                        <icon icon="CALENDAR"/>
+                    </prefix>
+                </datePicker>
+                <entityComboBox id="userField" property="user" readOnly="true">
+                    <prefix>
+                        <icon icon="USER"/>
+                    </prefix>
+                    <itemsQuery class="com.company.timesheets.entity.User"
+                                escapeValueForLike="true"
+                                searchStringFormat="(?i)%${inputString}%">
+                        <fetchPlan extends="_base"/>
+                        <query>
+                            <![CDATA[select e from ts_User e where e.firstName like :searchString
+                             or e.username like :searchString
+                             or e.lastName like :searchString
+                             escape '\' order by e.firstName]]>
+                        </query>
+                    </itemsQuery>
+                    <actions>
+                        <action id="assignSelf" text="msg://assignSelf.text" icon="USER_CHECK"/>
+                        <action id="entityLookup" type="entity_lookup"/>
+                        <action id="entityClear" type="entity_clear"/>
+                    </actions>
+                </entityComboBox>
+                <entityComboBox id="taskField"
+                                itemsContainer="tasksDc"
+                                property="task"
+                                dataContainer="timeEntryDc">
+                    <actions>
+                        <action id="entityLookup" type="entity_lookup"/>
+                        <action id="entityClear" type="entity_clear"/>
+                    </actions>
+                    <prefix>
+                        <icon icon="FILE_TEXT_O"/>
+                    </prefix>
+                </entityComboBox>
+                <textField id="spentTimeField"
+                           property="spentTime"
+                           placeholder="msg://spentTimeField.placeholder">
+                    <prefix>
+                        <icon icon="CLOCK"/>
+                    </prefix>
+                </textField>
+                <select id="statusField" property="status"/>
+                <textArea id="descriptionField" property="description"
+                          height="9.5em" colspan="2">
+                    <prefix>
+                        <icon icon="COMMENT_O"/>
+                    </prefix>
+                </textArea>
+                <textArea id="rejectionReasonField" property="rejectionReason"
+                          height="9.5em" colspan="2" required="true">
+                    <prefix>
+                        <icon icon="EXCLAMATION_CIRCLE_O"/>
+                    </prefix>
+                </textArea>
+            </formLayout>
+        </vbox>
+        <hbox id="detailActions" classNames="bg-contrast-5 px-m py-xs">
             <button id="saveAndCloseBtn" action="saveAction"/>
             <button id="closeBtn" action="closeAction"/>
         </hbox>
