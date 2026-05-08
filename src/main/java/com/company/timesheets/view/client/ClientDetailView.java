@@ -1,12 +1,17 @@
 package com.company.timesheets.view.client;
 
+import com.company.timesheets.component.ColorComponent;
+import com.company.timesheets.component.ColorPicker;
+import com.company.timesheets.component.themetoggle.ThemeToggle;
 import com.company.timesheets.entity.Client;
 import com.company.timesheets.entity.ContactInformation;
 import com.company.timesheets.view.contactinformationfragment.ContactInformationFragment;
 import com.company.timesheets.view.main.MainView;
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.Fragments;
+import io.jmix.flowui.Notifications;
 import io.jmix.flowui.component.details.JmixDetails;
 import io.jmix.flowui.component.image.JmixImage;
 import io.jmix.flowui.kit.component.button.JmixButton;
@@ -28,6 +33,8 @@ public class ClientDetailView extends StandardDetailView<Client> {
     private InstancePropertyContainer<ContactInformation> contactInformationDc;
     @ViewComponent
     private JmixDetails ciDetails;
+    @Autowired
+    private Notifications notifications;
 
     @Subscribe
     public void onReady(final ReadyEvent event) {
@@ -51,6 +58,20 @@ public class ClientDetailView extends StandardDetailView<Client> {
             image.setSrc("images/add-image-placeholder.png");
         }
     }
+
+    @Subscribe
+    public void onInit(final InitEvent event) {
+//        ColorPicker colorPicker = new ColorPicker();
+//        getContent().add(colorPicker);
+//
+//        colorPicker.addValueChangeListener(e ->
+//                notifications.show("Picked color: " + e.getValue()));
+
+        ColorComponent colorComponent = new ColorComponent();
+        getContent().add(colorComponent);
+    }
+    
+    
 
 //    @Subscribe
 //    public void onInit(final InitEvent event) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <mainView xmlns="http://jmix.io/schema/flowui/main-view"
+          xmlns:app="http://company.com/schema/app-ui-components"
           title="msg://MainView.title">
     <actions>
         <action id="logoutAction" text="msg:///actions.logout.text" type="logout"/>
@@ -11,8 +12,9 @@
                               classNames="jmix-main-view-drawer-toggle"
                               themeNames="contrast"
                               ariaLabel="msg://drawerToggle.ariaLabel"/>
-                <h1 id="viewTitle" classNames="jmix-main-view-title"/>
-
+                <h1 id="viewTitle" classNames="jmix-main-view-title" width="100%"/>
+                <!--                <component class="com.company.timesheets.component.themetoggle.ThemeToggle"/>-->
+                <app:themeToggle id="themeToggle" classNames="ms-auto me-s bg-color-20"/>
                 <userMenu id="userMenu"
                           themeNames="tertiary" classNames="ms-auto me-m">
                     <items>
@@ -45,6 +47,11 @@
             </section>
         </drawerLayout>
         <initialLayout id="initialLayout" classNames="jmix-initial-layout">
+            <app:slider id="slider"
+                        width="20em"
+                        minHeight="1em"
+                        min="0"
+                        max="100"/>
             <div classNames="jmix-initial-layout-content">
                 <h1 text="msg://applicationTitle.text"
                     classNames="jmix-initial-layout-title"/>

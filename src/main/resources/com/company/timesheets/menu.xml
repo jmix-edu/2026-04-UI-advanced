@@ -7,6 +7,10 @@
               title="msg://com.company.timesheets/menu_config.ts_Task.my.title"/>
         <item view="ts_TimeEntries.my"
               title="msg://com.company.timesheets.view.mytimeentrieslist/myTimeEntriesListView.title"/>
+        <item view="ts_PdfDemoView" description="msg://com.company.timesheets/menu_config.ts_PdfDemoView.description"
+              title="msg://com.company.timesheets/menu_config.ts_PdfDemoView.title"/>
+        <item view="ts_Project.list_progr"
+              title="msg://com.company.timesheets.view.project/programmaticProjectListView.title"/>
     </menu>
     <menu opened="true" id="projects" description="msg://com.company.timesheets/menu_config.projects.description"
           title="msg://com.company.timesheets/menu_config.projects.title">

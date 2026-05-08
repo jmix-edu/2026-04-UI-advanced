@@ -1,5 +1,7 @@
 package com.company.timesheets.view.main;
 
+import com.company.timesheets.component.slider.Slider;
+import com.company.timesheets.component.themetoggle.ThemeToggle;
 import com.company.timesheets.entity.TimeEntry;
 import com.company.timesheets.entity.User;
 import com.company.timesheets.event.TimeEntryStatusChangedEvent;
@@ -164,5 +166,15 @@ public class MainView extends StandardMainView {
 
         }
         menu.getMenuItem("ts_TimeEntries.my").setSuffixComponent(badge);
+    }
+
+    @Subscribe("themeToggle")
+    public void onThemeToggleThemeToggleThemeChanged(final ThemeToggle.ThemeToggleThemeChangedEvent event) {
+        notifications.show("Selected theme: " + event.getValue());
+    }
+
+    @Subscribe("slider")
+    public void onSliderValueChanged(final Slider.SlideChangedEvent event) {
+        notifications.show("Current value: " + event.getValue());
     }
 }
